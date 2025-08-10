@@ -88,3 +88,31 @@ const getuser2 = (user: User): string => {
 
 let result2 = getuser2({ name: "nivas", age: 25, location: "madurai" });
 console.log(result2);
+
+type user4 = {
+    name: String;
+    age ?: number; //optional property
+    readonly  location: string; //readonly property cannnot assign the value
+};
+type Person = {
+    name:string;
+    age: number;
+}
+
+type employee = {
+    id : number;
+    title: string;
+}
+
+type newuser =  Person & employee; //intersection type
+
+
+const getuser3 = (user: newuser): string => {
+    return `Name is ${user.name} and age is ${user.age} and id is ${user.id} and title is ${user.title}`;
+};
+
+
+
+const getuser4 = (user:newuser): void =>{
+    console.log(`name is ${user.name} and age is ${user.age} and id is ${user.id} and title is ${user.title}`);
+}
